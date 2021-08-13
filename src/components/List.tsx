@@ -2,7 +2,7 @@ import { FunctionComponent, useEffect, useState } from "react";
 import { Alert, Container } from "react-bootstrap";
 import ListGroup from "react-bootstrap/ListGroup";
 
-export const List: FunctionComponent<{}> = ({}) => {
+export const List: FunctionComponent = () => {
   const [list, setList] = useState<any[]>([]);
   const [alert, setAlert] = useState<string | null>(null);
 
@@ -84,6 +84,7 @@ export const List: FunctionComponent<{}> = ({}) => {
               >
                 <div>
                   <a
+                  rel="noreferrer"
                     href={issue.html_url}
                     target="_blank"
                     className="text-dark"
@@ -92,6 +93,7 @@ export const List: FunctionComponent<{}> = ({}) => {
                   </a>
                   <div>
                     <a
+                    rel="noreferrer"
                       href={issue.repository_url
                         .replace("api.", "")
                         .replace("/repos", "")}
@@ -101,9 +103,10 @@ export const List: FunctionComponent<{}> = ({}) => {
                     </a>
                   </div>
                   <div className="user-details">
-                    <a href={issue.user.html_url} target="_blank">
+                    <a rel="noreferrer" href={issue.user.html_url} target="_blank">
+                    <img alt={issue.user.login} src={issue.user.avatar_url} className="user-icon" />
                       <i>issue opened by {issue.user.login}</i>
-                      <img src={issue.user.avatar_url} className="user-icon" /><br/>
+                      <br/>
                       <small>{issue.user.html_url}</small>
                     </a>
 
